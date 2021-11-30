@@ -13,7 +13,7 @@ curl -O http://packages.confluent.io/archive/7.0/confluent-7.0.0.zip
 설치할 경로에 다운로드한 파일을 압축 해제 합니다.
 `````
 $ unzip confluent-7.0.0.zip
-``````
+`````
 
 
 ### Start Kafka
@@ -38,26 +38,26 @@ Kafka is [UP]
 Starting Schema Registry
 ....
 
-``````
+`````
 
 
 Kafka 정지는 다음 명령어로 합니다.
 `````
 $ confluent local services stop
-``````
+`````
 
 ### DynamoDB Source  & MongoDB Connector install
 kafka-connect-dynamodb-1.0.0.jar 파일을 복사
 `````
 $ cp kafka-connect-dynamodb-1.0.0.jar $CONFLUENT_HOME/share/java/kafka/
-````
+`````
 
 MongoDB Connector 설치    
 Confluent-hub 에서 제공하는 kafka connector 를 설치 합니다.
 
-````
+`````
 $ confluent-hub install mongodb/kafka-connect-mongodb:1.6.1
-````
+`````
 
 ### DynamoDB 준비
 Migration 대상 DynamoDB table 에 사전 준비 사항을 설정 합니다.
@@ -74,9 +74,9 @@ Connector Setup 을 위한 JSON 파일을 다운로드 후 해당 정보를 이�
 
 JSON 파일내에 AWS DynamoDB 접근을 위한 Key 정보를 입력 한 후 진행 합니다.    
 DynamoDB Source Producer 생성   
-````
+`````
 $ curl -X PUT -H 'Content-type: application/json' http://localhost:8083/connectors/<<DynamoDB Connect Name>>/config -d @myDynamodbConnector.json
-````
+`````
 
 JSON 내에 MongoDB 연결 정보를 맞게 수정 하여 준 후 connector 설치를 진행 합니다.    
 <<Database>> : Atlas Database 이름    
@@ -85,9 +85,9 @@ JSON 내에 MongoDB 연결 정보를 맞게 수정 하여 준 후 connector 설�
 <<Internal_IP>> : localhost 혹은 private IP    
 
 MongoDB Sink Consumer 생성
-````
+`````
 $ curl -X PUT -H 'Content-type: application/json' http://localhost:8083/connectors/<<MongoDB Connect Name>>/config -d@mongoDB-sink.json
-````
+`````
 
 설치가 완료된 Kafka connector 정보    
 KAFKA의 관리 콘솔 주소는 다음과 같습니다.    
