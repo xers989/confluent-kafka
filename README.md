@@ -65,8 +65,10 @@ Stream enable (Exports & Stream > DynamoDB stream details)
 
 <img src="/image/image03.png" width="90%" height="90%"> 
 
-Tag 정보에 migration 대상으로 설정 하기 위해 약속된 Tag 를 추가 하여 줍니다.
+Tag 정보에 migration 대상으로 설정 하기 위해 약속된 Tag 를 추가 하여 줍니다.    
+`````
 Environment = dev
+`````
 
 ### Connector 생성
 설치된 Connector를 이용하여 Producer, Consumer 를 생성 합니다.   
@@ -79,10 +81,12 @@ $ curl -X PUT -H 'Content-type: application/json' http://localhost:8083/connecto
 `````
 
 JSON 내에 MongoDB 연결 정보를 맞게 수정 하여 준 후 connector 설치를 진행 합니다.    
+`````
 <<Database>> : Atlas Database 이름    
 <<collectionName>> : Atlas Collection 이름    
 <<USER>>:<<PASSWORD>> : Atlas User & Password    
 <<Internal_IP>> : localhost 혹은 private IP    
+`````
 
 MongoDB Sink Consumer 생성
 `````
@@ -91,14 +95,20 @@ $ curl -X PUT -H 'Content-type: application/json' http://localhost:8083/connecto
 
 설치가 완료된 Kafka connector 정보    
 KAFKA의 관리 콘솔 주소는 다음과 같습니다.    
+`````
 http://<<KAFKA IP>>:9021/     
+`````
 콘솔내에서 Connector 정보를 확인 합니다.    
 <img src="/image/image01.png" width="90%" height="90%"> 
 각 Connector 를 조회 하면 Json 으로 입력한 정보로 생성된 connector를 볼 수 있습니다.
 
 DynamoDB Source Connector는 Source connector로 DyanmoDB를 주기적으로 Polling 하고 읽어야 할 데이터를 읽은 후 Topic에 저장 하는 역할을 합니다. 등록이 정상적으로 진행 된 경우 자동으로 연관된 토픽을 생성 합니다.    
 
-생성된 Connector의 정보는 Connect > connect-default > <<DynamoDB Connect Name>> > Settings 에서 정보를 확인 할 수 있습니다.    
+생성된 Connector의 정보는 
+`````
+Connect > connect-default > <<DynamoDB Connect Name>> > Settings 
+`````
+에서 정보를 확인 할 수 있습니다.    
 Operation tag key name 이 init 인 것을 확인 하고 Tables whitelist에 Migration 대상 DynamoDB table 이 등록된 것을 확인 합니다.    
 <img src="/image/image02.png" width="90%" height="90%">    
 
@@ -106,7 +116,11 @@ Operation tag key name 이 init 인 것을 확인 하고 Tables whitelist에 Mig
 <img src="/image/image04.png" width="90%" height="90%">    
 
 
-생성된 MongoDB Connnector 의 정보를 Connect > connect-default > <<MongoDB Connect Name>> > Settings 에서 확인 합니다.    
+생성된 MongoDB Connnector 의 정보를 
+`````
+Connect > connect-default > <<MongoDB Connect Name>> > Settings 
+`````
+에서 확인 합니다.    
 topics 항목이 생성된 topic 으로 설정 되어 있는지 확인 합니다. (첨부된 Json 은 Temp로 설정 되어 있음으로 temp를 삭제하고 맞는 topic을 선택 합니다)
 
 
