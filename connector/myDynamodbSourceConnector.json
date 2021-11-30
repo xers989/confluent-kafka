@@ -1,1 +1,19 @@
-{"connector.class":"DynamoDBSourceConnector","dynamodb.table.whitelist":"customerDB","tasks.max":"4","resource.tagging.service.endpoint":"","dynamodb.table.env.tag.key":"environment","dynamodb.table.ingestion.tag.key":"datalake-ingest","init.sync.delay.period":"60","aws.secret.key":"<<AWSSecret>>","aws.region":"ap-northeast-2","connect.dynamodb.rediscovery.period":"60000","name":"myDynamodbConnector","aws.access.key.id":"<<AWSKey>>","dynamodb.table.env.tag.value":"dev","kcl.table.billing.mode":"PROVISIONED","kafka.topic.prefix":"mongodb-","dynamodb.service.endpoint":""}
+{
+    "connector.class":"DynamoDBSourceConnector",
+    "dynamodb.table.whitelist":"customerKinesis",
+    "tasks.max":"4",
+    "resource.tagging.service.endpoint":"",
+    "dynamodb.table.env.tag.key":"environment",
+    "dynamodb.table.ingestion.tag.key":"datalake-ingest",
+    "init.sync.delay.period":"60",
+    "aws.secret.key":"<<AWS_SECRET>>",
+    "aws.region":"ap-northeast-2",
+    "connect.dynamodb.rediscovery.period":"60000",
+    "name":"myDynamodbConnector",
+    "aws.access.key.id":"<<AWS_ACCESS>>",
+    "dynamodb.table.env.tag.value":"dev",
+    "kcl.table.billing.mode":"PROVISIONED",
+    "kafka.topic.prefix":"mongodb-",
+    "dynamodb.service.endpoint":"",
+"dynamodb.table.operation.mode.key": "init"
+}
