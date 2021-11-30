@@ -99,7 +99,8 @@ KAFKA의 관리 콘솔 주소는 다음과 같습니다.
 http://<<KAFKA IP>>:9021/     
 `````
 콘솔내에서 Connector 정보를 확인 합니다.    
-<img src="/image/image01.png" width="90%" height="90%"> 
+<img src="/image/image01.png" width="90%" height="90%">     
+
 각 Connector 를 조회 하면 Json 으로 입력한 정보로 생성된 connector를 볼 수 있습니다.
 
 DynamoDB Source Connector는 Source connector로 DyanmoDB를 주기적으로 Polling 하고 읽어야 할 데이터를 읽은 후 Topic에 저장 하는 역할을 합니다. 등록이 정상적으로 진행 된 경우 자동으로 연관된 토픽을 생성 합니다.    
@@ -122,7 +123,7 @@ Connect > connect-default > <<MongoDB Connect Name>> > Settings
 `````
 에서 확인 합니다.    
 topics 항목이 생성된 topic 으로 설정 되어 있는지 확인 합니다. (첨부된 Json 은 Temp로 설정 되어 있음으로 temp를 삭제하고 맞는 topic을 선택 합니다)
-
+<img src="/image/image05.png" width="90%" height="90%">    
 
 ### DynamoDB Data migration
 DynamoDB connector 가 정상 작동하면 주기적으로 대상 테이블을 검색하고 지정된 단위로 데이터를 가져와 토픽에 넣게 됩니다.
